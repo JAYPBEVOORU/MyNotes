@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.tsbuildinfo
+.eslintignore
+.gitignore
+.nvmrc
+.prettierignore
+Dockerfile
+.DS_Store
+tools/agnostic2ios/
+.husky/
+.idea
+.env
+coverage/
+.env.example
+test/.env.test
+.vscode/settings.json

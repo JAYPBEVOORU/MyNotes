@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Post,
-  Route,
-  SuccessResponse,
-  Response,
-  Example,
-} from "tsoa";
+import { Body, Controller, Post, Route, SuccessResponse, Response, Example } from "tsoa";
 import { UserCredentials } from "../model/user";
 import { createUser, loginUser } from "../service/userService";
 
@@ -17,11 +9,9 @@ export class UserController extends Controller {
   @Post("register")
   @Example<UserCredentials>({
     email: "hello@hello.com",
-    password: "don't tell anybody",
+    password: "don't tell anybody"
   })
-  public async register(
-    @Body() user: UserCredentials
-  ): Promise<string | undefined> {
+  public async register(@Body() user: UserCredentials): Promise<string | undefined> {
     return await createUser(user);
   }
 
@@ -30,7 +20,7 @@ export class UserController extends Controller {
   @Post("login")
   @Example<UserCredentials>({
     email: "hello@hello.com",
-    password: "don't tell anybody",
+    password: "don't tell anybody"
   })
   public async login(@Body() user: UserCredentials): Promise<string> {
     return await loginUser(user);

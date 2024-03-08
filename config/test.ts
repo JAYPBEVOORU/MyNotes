@@ -1,8 +1,8 @@
 export default {
   secrets: {
-    jwt_key: "my_jwt_secret",
+    jwt_key: "my_jwt_secret"
   },
   app: {
-    port: 8080,
-  },
+    port: 8080
+  }
 };

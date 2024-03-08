@@ -11,15 +11,15 @@ const noteSchema = new Schema<INote>(
     title: {
       type: String,
       required: [true, "Note title can't be empty"],
-      trim: true,
+      trim: true
     },
     createdBy: {
       type: String,
-      required: [true, "Created by can't be empty"],
+      required: [true, "Created by can't be empty"]
     },
     content: {
-      type: String,
-    },
+      type: String
+    }
   },
   { timestamps: true }
 );

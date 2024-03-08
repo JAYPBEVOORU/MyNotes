@@ -11,18 +11,14 @@ import { isDuplicateDocError } from "../util";
  * @param user
  * @returns doc id of created user
  */
-const createUser = async (
-  user: UserCredentials
-): Promise<string | undefined> => {
+const createUser = async (user: UserCredentials): Promise<string | undefined> => {
   try {
     const createdUser = await User.create(user);
     logger.debug(`created user ${createdUser.id}`);
     return createdUser.id;
   } catch (err) {
     if (err instanceof Error && isDuplicateDocError(err as Error)) {
-      throw new UserAlreadyExists(
-        `user with email ${user.email} already exists`
-      );
+      throw new UserAlreadyExists(`user with email ${user.email} already exists`);
     } else {
       throw err;
     }

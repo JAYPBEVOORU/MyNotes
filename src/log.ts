@@ -8,14 +8,14 @@ const stream = pino.transport({
     {
       level: "debug",
       target: "pino-pretty",
-      options: {},
+      options: {}
     },
     {
       level: "trace",
       target: "pino/file",
-      options: { destination: `${__dirname}/../logs/app.log` },
-    },
-  ],
+      options: { destination: `${__dirname}/../logs/app.log` }
+    }
+  ]
 });
 const logger = pino(stream);
 logger.level = "debug";

@@ -11,7 +11,7 @@ interface Config {
 
 const appConfig: Config = {
   secrets: config.get("secrets"),
-  app: config.get("app"),
+  app: config.get("app")
 };
 
 export default appConfig;

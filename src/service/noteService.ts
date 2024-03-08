@@ -16,10 +16,7 @@ const getUserNotes = async (userId: string): Promise<INote[]> => {
  * @param userEmail
  * @returns a single note with id noteId, created by userId
  */
-const getUserNoteById = async (
-  userId: string,
-  noteId: string
-): Promise<INote | null> => {
+const getUserNoteById = async (userId: string, noteId: string): Promise<INote | null> => {
   return await Note.findOne({ _id: noteId, createdBy: userId });
 };
 
@@ -29,21 +26,16 @@ const getUserNoteById = async (
  * @param note
  * @returns Note created by userId
  */
-const addNote = async (
-  userId: string,
-  noteCreateRequest: NoteCreateRequest
-): Promise<INote> => {
+const addNote = async (userId: string, noteCreateRequest: NoteCreateRequest): Promise<INote> => {
   try {
     const createdNote = await Note.create({
       ...noteCreateRequest,
-      createdBy: userId,
+      createdBy: userId
     });
     return createdNote;
   } catch (err) {
     if (err instanceof Error && isDuplicateDocError(err as Error)) {
-      throw new NoteAlreadyExists(
-        `Note with same title already exists for the user`
-      );
+      throw new NoteAlreadyExists(`Note with same title already exists for the user`);
     } else {
       throw err;
     }

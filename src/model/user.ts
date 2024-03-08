@@ -21,13 +21,13 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "email can't be empty"],
     unique: true,
-    trim: true,
+    trim: true
   },
   password: {
     type: String,
     required: [true, "password can't be empty"],
-    trim: true,
-  },
+    trim: true
+  }
 });
 
 UserSchema.pre("save", function (next) {

@@ -4,11 +4,7 @@ import { verifyToken } from "../jwt";
 import { InvalidToken } from "../exceptions/InvalidToken";
 import { AccessTokenNotFound } from "../exceptions/AccessTokenNotFound";
 
-export function expressAuthentication(
-  request: express.Request,
-  securityName: string,
-  scopes?: string[]
-): Promise<any> {
+export function expressAuthentication(request: express.Request, securityName: string, scopes?: string[]): Promise<any> {
   if (securityName === "jwt") {
     const token = request.query["_accessToken"] as string;
     return new Promise((resolve, reject) => {
